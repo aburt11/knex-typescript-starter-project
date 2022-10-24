@@ -3,8 +3,13 @@ import { runMigrations } from "./migrations";
 
 async function main() {
     const knex = Knex({
-        client: "sqlite3",
-        connection: { filename: ":memory:" },
+        client: "pg",
+        connection: {  host : 'localhost',
+    port : 5432,
+    user : 'root',
+    password : 'Password',
+    database : 'kashmirDEV'
+ },
         pool: { min: 1, max: 1 },
         useNullAsDefault: true,
     });
